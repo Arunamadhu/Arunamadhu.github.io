@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>සිතුවිලි</title>
+    <style>
+        :root {
+            --primary-color: #64b5a2;
+            --secondary-color: #b2d8d8;
+            --text-color: #333;
+            --bg-color: #f4f9f8;
+            --header-height: 60px;
+            --nav-height: 50px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            transition: background-color 0.3s ease;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 1.8rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--secondary-color);
+            padding: 10px 10px;
+            position: fixed;
+            width: 100%;
+            top: var(--header-height);
+            z-index: 999;
+            height: 12%;
+            box-sizing: border-box;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 5px;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #107179;
+        }
+
+        .date-time {
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: calc(var(--header-height) + var(--nav-height) + 20px) auto 0;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        img {
+            max-width: 50%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 8px;
+            opacity: 50;
+           
+        }
+
+        img:hover {
+            transform: scale(1.03);
+        }
+
+        h2, p {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 30px;
+        }
+
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin: 0 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.2);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            z-index: 1001;
+        }
+
+        .theme-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Dark mode */
+        .dark-mode {
+            --primary-color: #2c7a7b;
+            --secondary-color: #38b2ac;
+            --text-color: #e2e8f0;
+            --bg-color: #2d3748;
+        }
+
+        .dark-mode main {
+            background-color: #1a202c;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                font-size: 1.5rem;
+            }
+
+            nav {
+                flex-direction: column;
+                height: auto;
+            }
+
+            nav a {
+                margin: 5px 0;
+            }
+
+            main {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <header>
+        සිතුවිලි
+    </header>
+
+    <nav>
+        <div>
+            <a href="#">අපි ගැන</a>
+            <a href="#">අප හා සම්බන්ධ වන්න</a>
+        </div>
+        <div class="date-time" id="date-time"></div>
+    </nav>
+
+    <main>
+        <h2>** වනයේ සුසුම් **</h2>
+        <p>
+            නිහඬ වැව අසල, මම තනිවම සිටිමි, <br>
+            මිනිස් හඬක් නැත, ඈත නිවසක් නැත. <br>
+            සුළං, ඔවුන් මෘදු හා පහත් ලෙස කොඳුරනවා, <br>
+            කුරුල්ලන් ගීත ගායනා කරන විට පෘථිවිය දැන සිටිය යුතුය. <br>
+            
+            රතු හිරු තද රතු පාට ආලෝකයේ ගිලී යයි, <br> 
+            දවස සිය මෘදු සුබ රාත්‍රියක් ලෙස ලංසු තැබීම. <br>
+            මේ නිශ්ශබ්දතාවය තුළ, මගේ හදවත සොයා ගනී, <br> 
+            ඉතා දුර්ලභ සාමයක්, සන්සුන් මනසක්. <br>
+            
+            කැලය මුමුණයි, මොහොත නිසලයි, <br>
+            මගේ ආත්මය ස්වභාවධර්මයේ සන්සුන් භාවයෙන් පිරී යයි. <br>
+            මෙන්න වනයේ, මම ඇත්තටම දකිනවා, <br>
+            සරලව *නිදහසේ* සිටීමේ අනර්ඝත්වය.
+        </p>
+        <img src="lake (1).webp" alt="Relevant image for the thought"> <br>
+
+        <h2> **නම් නොකළ ආදරය** </h2>
+        <p> 
+            එය අමුතුයි, අහඹුයි, නමුත් කෙසේ හෝ පැහැදිලියි,  <br>
+            හැමදාම ළංවෙන ආදරයක්.  <br>
+            මට එය නම් කිරීමට හෝ තේරුම් ගැනීමට නොහැකි වුවද,  <br>
+            ඔබ මෘදු අතකින් මගේ හදවත ස්පර්ශ කළා.  <br>
+            
+            දහස් වාරයක්, මට ඔබේ සැලකිල්ල දැනුණා,  <br>
+            මුමුනන සුලඟේ, හැම බැල්මකම.  <br>
+            වචන අසාර්ථක වුවද, මගේ හදවත දන්නවා,  <br>
+            මමත් ඔයාට ආදරෙයි, මම පෙන්නනවට වඩා.  <br>
+            
+            නිශ්ශබ්දතාවයෙන්, අපි සදහටම ඒකාබද්ධ වෙමු,  <br>
+            ආරම්භයක් නැති අවසානයක් නැති ආදරයක්. <br>
+            
+            @ අරුණ
+        </p> <br>
+
+        <img src="love.jpeg" alt="Relevant image for the thought"> <br>
+    </main>
+
+    <footer>
+        © සිතුවිලි 2024 | All Rights Reserved | Aruna Madhushanka 
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                <img src="https://img.icons8.com/fluency/48/000000/facebook-new.png" alt="Facebook">
+            </a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                <img src="https://img.icons8.com/color/48/000000/twitter--v1.png" alt="Twitter">
+            </a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                <img src="https://img.icons8.com/fluency/48/000000/instagram-new.png" alt="Instagram">
+            </a>
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+                <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn">
+            </a>
+        </div>
+    </footer>
+
+    <div class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌓</div>
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+            body.classList.toggle('light-mode');
+        }
+
+        function updateDateTime() {
+            const dateTimeElement = document.getElementById('date-time');
+            const now = new Date();
+            const options = { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit', 
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            };
+            dateTimeElement.textContent = now.toLocaleString('en-US', options);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setInterval(updateDateTime, 1000);
+            
+            const elements = document.querySelectorAll('main h2, main p, main img');
+            elements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.2}s`;
+            });
+        });
+    </script>
+</body>
+</html>
