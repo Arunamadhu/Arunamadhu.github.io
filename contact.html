@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>සිතුවිලි</title>
+    <style>
+       
+            :root {
+                --primary-color: #64b5a2;
+                --secondary-color: #b2d8d8;
+                --text-color: #333;
+                --bg-color: #f4f9f8;
+                --header-height: 60px;
+                --nav-height: 50px;
+            }
+    
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-color: var(--bg-color);
+                margin: 0;
+                padding: 0;
+                color: var(--text-color);
+                transition: background-color 0.3s ease;
+            }
+    
+            header {
+                background-color: var(--primary-color);
+                color: white;
+                text-align: center;
+                padding: 15px;
+                font-size: 1.8rem;
+                position: fixed;
+                width: 100%;
+                top: 0;
+                z-index: 1000;
+                height: var(--header-height);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+    
+            nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: var(--secondary-color);
+                padding: 10px 10px;
+                position: fixed;
+                width: 100%;
+                top: var(--header-height);
+                z-index: 999;
+                height: 12%;
+                box-sizing: border-box;
+            }
+    
+            nav a {
+                color: var(--text-color);
+                text-decoration: none;
+                margin: 0 10px;
+                padding: 5px;
+                font-size: 1rem;
+                transition: color 0.3s ease;
+            }
+    
+            nav a:hover {
+                color: #107179;
+            }
+    
+            .date-time {
+                color: var(--text-color);
+                font-size: 0.9rem;
+            }
+    
+            main {
+                padding: 20px;
+                max-width: 800px;
+                margin: calc(var(--header-height) + var(--nav-height) + 20px) auto 0;
+                background-color: white;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                border-radius: 8px;
+            }
+    
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+            }
+    
+            form input, form textarea {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                border: 1px solid var(--primary-color);
+                border-radius: 5px;
+                font-size: 1rem;
+            }
+    
+            form textarea {
+                resize: vertical;
+                height: 85px;
+            }
+    
+            form input[type="submit"] {
+                background-color: var(--primary-color);
+                color: white;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+    
+            form input[type="submit"]:hover {
+                background-color: var(--secondary-color);
+            }
+    
+            .notification {
+                display: none;
+                background-color: var(--secondary-color);
+                color: var(--text-color);
+                padding: 10px;
+                border: 1px solid var(--primary-color);
+                border-radius: 5px;
+                margin-top: 20px;
+            }
+    
+            footer {
+                text-align: center;
+                padding: 15px;
+                background-color: var(--primary-color);
+                color: white;
+                margin-top: 30px;
+            }
+    
+            .social-icons {
+                margin-top: 10px;
+            }
+    
+            .social-icons a {
+                margin: 0 10px;
+                color: white;
+                font-size: 1.2rem;
+                text-decoration: none;
+            }
+    
+            .social-icons img {
+                width: 24px;
+                height: 24px;
+                vertical-align: middle;
+                margin: 0 5px;
+                transition: transform 0.3s ease;
+            }
+    
+            .social-icons img:hover {
+                transform: scale(1.2);
+            }
+    
+            .theme-toggle {
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                cursor: pointer;
+                background-color: rgba(255, 255, 255, 0.2);
+                padding: 10px;
+                border-radius: 50%;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                transition: background-color 0.3s ease;
+                z-index: 1001;
+            }
+    
+            .theme-toggle:hover {
+                background-color: rgba(255, 255, 255, 0.3);
+            }
+    
+            /* Dark mode */
+            .dark-mode {
+                --primary-color: #2c7a7b;
+                --secondary-color: #38b2ac;
+                --text-color: #e2e8f0;
+                --bg-color: #2d3748;
+            }
+    
+            .dark-mode main {
+                background-color: #1a202c;
+            }
+    
+            @media (max-width: 768px) {
+                header {
+                    font-size: 1.5rem;
+                }
+    
+                nav {
+                    flex-direction: column;
+                    height: auto;
+                }
+    
+                nav a {
+                    margin: 5px 0;
+                }
+    
+                main {
+                    padding: 10px;
+                }
+            }
+    </style>
+</head>
+<body class="light-mode">
+    <header>
+        ~~~~~~ සිතුවිලි ~~~~~~
+    </header>
+
+    <nav>
+        <div>
+            <a href="index.html">මුල් පිටුවට</a>
+            <a href="about.html">අපි ගැන</a>
+        </div>
+        <div class="date-time" id="date-time"></div>
+    </nav>
+
+    <main>
+        <form id="thoughtsForm" action="db_connect.php" method="POST">
+            <input type="text" name="name" id="name" placeholder="ඔයාගේ නම" required>
+            <input type="email" name="email" id="email" placeholder="ඔබගේ විද්‍යුත් තැපෑල" required>
+            <input type="text" name="address" placeholder="ඔබගේ ලිපිනය" required>
+            <textarea name="thoughts" placeholder="ඔබේ අදහස් බෙදාගන්න" required></textarea>
+            <input type="submit" value="ඔබේ අදහස ඉදිරිපත් කරන්න">
+        </form>
+        <div class="notification" id="notification"></div>
+    </main>
+
+    <footer>
+        © සිතුවිලි 2024 | All Rights Reserved | Aruna Madhushanka 
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                <img src="https://img.icons8.com/fluency/48/000000/facebook-new.png" alt="Facebook">
+            </a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                <img src="https://img.icons8.com/color/48/000000/twitter--v1.png" alt="Twitter">
+            </a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                <img src="https://img.icons8.com/fluency/48/000000/instagram-new.png" alt="Instagram">
+            </a>
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+                <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn">
+            </a>
+        </div>
+    </footer>
+
+    <div class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌓</div>
+
+    <script>
+        // Toggle Theme Function
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+            body.classList.toggle('light-mode');
+        }
+
+        // Email validation function
+        function validateEmail(email) {
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            return emailRegex.test(email);
+        }
+
+        // Handle form submission
+        document.getElementById('thoughtsForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const emailInput = document.getElementById('email');
+            if (!validateEmail(emailInput.value)) {
+                alert('Invalid email format');
+                return;
+            }
+
+            const formData = new FormData(this);
+
+            try {
+                const response = await fetch('db_connect.php', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const result = await response.json();
+
+                if (result.status === 'success') {
+                    document.getElementById('notification').textContent = result.message;
+                    document.getElementById('notification').style.display = 'block';
+                    setTimeout(() => {
+                        document.getElementById('notification').style.display = 'none';
+                        window.location.href = "index.html";
+                    }, 2000);
+                } else {
+                    alert(result.message);
+                }
+
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while submitting the form. Please try again later.');
+            }
+        });
+
+        // Function to update date and time
+        function updateDateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+            document.getElementById('date-time').innerHTML = now.toLocaleDateString('si-LK', options);
+        }
+
+        // Update date and time every second
+        setInterval(updateDateTime, 1000);
+    </script>
+</body>
+</html>
