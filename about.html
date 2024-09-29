@@ -10,8 +10,6 @@
             --secondary-color: #b2d8d8;
             --text-color: #333;
             --bg-color: #f4f9f8;
-            --header-height: 60px;
-            --nav-height: 50px;
         }
 
         body {
@@ -28,54 +26,52 @@
             color: white;
             text-align: center;
             padding: 15px;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            height: var(--header-height);
-            display: flex;
-            align-items: center;
-            justify-content: center;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             background-color: var(--secondary-color);
-            padding: 15px 10px;
+            padding: 10px;
             position: fixed;
             width: 100%;
-            top: var(--header-height);
+            top: 60px;
             z-index: 999;
-            height: 25%;
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         nav a {
             color: var(--text-color);
             text-decoration: none;
-            margin: 0 10px;
-            padding: 10px;
+            margin: 5px 0;
+            padding: 8px;
             font-size: 1rem;
             transition: color 0.3s ease;
+            width: 100%;
+            text-align: center;
         }
 
         nav a:hover {
             color: #107179;
+            background-color: rgba(255,255,255,0.2);
         }
 
         .date-time {
             color: var(--text-color);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            margin-top: 10px;
         }
 
         main {
-            padding: 20px;
-            max-width: 800px;
-            margin: calc(var(--header-height) + var(--nav-height) + 20px) auto 0;
+            padding: 15px;
+            margin: 160px auto 0;
             background-color: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
@@ -83,16 +79,10 @@
         }
 
         img {
-            max-width: 50%;
+            max-width: 100%;
             height: auto;
-            margin: 20px 0;
+            margin: 15px 0;
             border-radius: 8px;
-            opacity: 50;
-           
-        }
-
-        img:hover {
-            transform: scale(1.01);
         }
 
         h2, p {
@@ -114,6 +104,7 @@
             background-color: var(--primary-color);
             color: white;
             margin-top: 30px;
+            font-size: 0.9rem;
         }
 
         .social-icons {
@@ -121,7 +112,7 @@
         }
 
         .social-icons a {
-            margin: 0 10px;
+            margin: 0 5px;
             color: white;
             font-size: 1.2rem;
             text-decoration: none;
@@ -131,7 +122,6 @@
             width: 24px;
             height: 24px;
             vertical-align: middle;
-            margin: 0 5px;
             transition: transform 0.3s ease;
         }
 
@@ -145,18 +135,18 @@
             right: 10px;
             cursor: pointer;
             background-color: rgba(255, 255, 255, 0.2);
-            padding: 10px;
+            padding: 8px;
             border-radius: 50%;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease;
             z-index: 1001;
+            font-size: 1.2rem;
         }
 
         .theme-toggle:hover {
             background-color: rgba(255, 255, 255, 0.3);
         }
 
-        /* Dark mode */
         .dark-mode {
             --primary-color: #2c7a7b;
             --secondary-color: #38b2ac;
@@ -168,22 +158,32 @@
             background-color: #1a202c;
         }
 
-        @media (max-width: 768px) {
+        @media (min-width: 768px) {
             header {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
 
             nav {
-                flex-direction: column;
-                height: auto;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 15px;
+                top: 65px;
             }
 
             nav a {
-                margin: 5px 0;
+                width: auto;
+                margin: 0 10px;
             }
 
             main {
-                padding: 10px;
+                max-width: 800px;
+                padding: 20px;
+                margin-top: 140px;
+            }
+
+            .date-time {
+                font-size: 0.9rem;
+                margin-top: 0;
             }
         }
     </style>
@@ -203,16 +203,8 @@
 
     <main>
         <div>
-            
-            <p>අපි අපගේ සමාජයේ සමාජ යහපැවැත්ම සඳහා කැප වූ ලාභ නොලබන සංවිධානයකි. අධ්‍යාත්මික වර්ධනයට සහ සමාජ-සංස්කෘතික වටිනාකම් වැඩි දියුණු කිරීමට සාහිත්‍යය ප්‍රබල මෙවලමක් ලෙස සේවය කරන බව අපි විශ්වාස කරමු. මෙම වේදිකාව ඔවුන්ගේ සුන්දර, හෘදයාංගම සිතුවිලි බෙදා ගැනීමට, ප්‍රජාවේ අන් අයගේ ජීවිත සමඟ සම්බන්ධ වීමට සහ පොහොසත් කිරීමට කැමති සියල්ලන්ට විවෘතය <br>
-             <br> </p> 
-             <p>අපි වචනවල මායාව විශ්වාස කරමු - අප සියල්ලන්ම සුව කිරීමට, ප්‍රබෝධමත් කිරීමට සහ සම්බන්ධ කිරීමට ඒවායේ බලය. කාව්‍ය, කතන්දර හෝ පරාවර්තන හරහා, ඔබේ කටහඬට සීමා මායිම් ඉක්මවා යන සහ ආත්මය නඟා සිටුවීමට සංවාද ඇති කළ හැකිය. මෙම වේදිකාව ඔබේ ආත්මයේ රහස, ඔබේ ගැඹුරු සිතුවිලි බෙදා ගැනීමට සහ ප්‍රකාශනයේ සුන්දරත්වය අගය කරන ප්‍රජාවක් සමඟ සම්බන්ධ වීමට විවෘත ආරාධනයකි. ඔබේ වචන වෙනස් වීමේ ආලෝකයක් බවට පත් වේවා, මානව සම්බන්ධතාවයේ ශක්තිය පිළිබඳ සාක්ෂියකි. අපි එක්ව වඩාත් ප්‍රබුද්ධ, දයානුකම්පිත ලෝකයක් නිර්මාණය කරන මෙම ගමනට අප හා එක්වීම ගැන ඔබට ස්තුතියි !
-            </p>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+            <p>අපි අපගේ සමාජයේ සමාජ යහපැවැත්ම සඳහා කැප වූ ලාභ නොලබන සංවිධානයකි. අධ්‍යාත්මික වර්ධනයට සහ සමාජ-සංස්කෘතික වටිනාකම් වැඩි දියුණු කිරීමට සාහිත්‍යය ප්‍රබල මෙවලමක් ලෙස සේවය කරන බව අපි විශ්වාස කරමු. මෙම වේදිකාව ඔවුන්ගේ සුන්දර, හෘදයාංගම සිතුවිලි බෙදා ගැනීමට, ප්‍රජාවේ අන් අයගේ ජීවිත සමඟ සම්බන්ධ වීමට සහ පොහොසත් කිරීමට කැමති සියල්ලන්ට විවෘතය</p> 
+            <p>අපි වචනවල මායාව විශ්වාස කරමු - අප සියල්ලන්ම සුව කිරීමට, ප්‍රබෝධමත් කිරීමට සහ සම්බන්ධ කිරීමට ඒවායේ බලය. කාව්‍ය, කතන්දර හෝ පරාවර්තන හරහා, ඔබේ කටහඬට සීමා මායිම් ඉක්මවා යන සහ ආත්මය නඟා සිටුවීමට සංවාද ඇති කළ හැකිය. මෙම වේදිකාව ඔබේ ආත්මයේ රහස, ඔබේ ගැඹුරු සිතුවිලි බෙදා ගැනීමට සහ ප්‍රකාශනයේ සුන්දරත්වය අගය කරන ප්‍රජාවක් සමඟ සම්බන්ධ වීමට විවෘත ආරාධනයකි. ඔබේ වචන වෙනස් වීමේ ආලෝකයක් බවට පත් වේවා, මානව සම්බන්ධතාවයේ ශක්තිය පිළිබඳ සාක්ෂියකි. අපි එක්ව වඩාත් ප්‍රබුද්ධ, දයානුකම්පිත ලෝකයක් නිර්මාණය කරන මෙම ගමනට අප හා එක්වීම ගැන ඔබට ස්තුතියි!</p>
         </div>
     </main>
 
@@ -251,7 +243,6 @@
                 day: 'numeric',
                 hour: '2-digit', 
                 minute: '2-digit',
-                second: '2-digit',
                 hour12: true
             };
             dateTimeElement.textContent = now.toLocaleString('en-US', options);
