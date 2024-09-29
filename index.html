@@ -6,83 +6,82 @@
     <title>සිතුවිලි</title>
     <style>
         :root {
-            --primary-color: #64b5a2;
-            --secondary-color: #b2d8d8;
-            --text-color: #333;
-            --bg-color: #f4f9f8;
-            --header-height: 60px;
-            --nav-height: 50px;
-        }
+    --primary-color: #64b5a2;
+    --secondary-color: #b2d8d8;
+    --text-color: #333;
+    --bg-color: #f4f9f8;
+    --header-height: 60px;
+    --nav-height: 50px;
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
-            color: var(--text-color);
-            transition: background-color 0.3s ease;
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+}
 
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 10px;
-            font-size: 1.8rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            height: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.8rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-      nav {
-            background-color: var(--secondary-color);
-            padding: 20px;
-            position: fixed;
-            width: 100%;
-            top: 60px;
-            height: 15px;
-            z-index: 999;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+nav {
+    background-color: var(--secondary-color);
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: var(--header-height);
+    height: var(--nav-height);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin: 5px 0;
-            padding: 8px;
-            font-size: 1rem;
-            transition: color 0.3s ease;
-            width: 100%;
-            text-align: center;
-        }
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin: 0 15px;
+    padding: 8px 15px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-        nav a:hover {
-            color: #107179;
-            background-color: rgba(255,255,255,0.2);
-        }
+nav a:hover {
+    color: #107179;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
 
+.date-time {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    position: absolute;
+    right: 20px;
+    top: 0;
+    padding: 15px;
+}
 
-        .date-time {
-            color: var(--text-color);
-            font-size: 0.9rem;
-        }
+main {
+    padding: 20px;
+    margin-top: calc(var(--header-height) + var(--nav-height));
+}
 
-        main {
-            padding: 20px;
-            margin-top: calc(var(--header-height) + var(--nav-height));
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
+       
 
         .poem-container {
             display: flex;
